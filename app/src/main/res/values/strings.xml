@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GameDroid</string>
+    <string name="website">Thkru.com</string>
+    <string name="portfolio">Open Source Portfolio App</string>
+    <string name="loading">Loading...</string>
+    <string name="loading_error">Could not load data from server.</string>
+    <string name="visit_website">Website</string>
+    <string name="call">Call</string>
+    <string name="make_fav">Make favourite?</string>
+    <string name="no_phone">No number available</string>
+    <string name="no_web">No website available</string>
+    <string name="id">ID:</string>
+    <string name="web">Web:</string>
+    <string name="text">Tel:</string>
+    <string name="all_games">All games</string>
+    <string name="fav_game">Favourite games</string>
+    <string name="no_favs">No favourites.</string>
+    <string name="please_select_game">Please select a game from the list.</string>
+    <string name="about">About</string>
+    <string name="about_details">Thomas Krüger Portfolio App\nHire me! :D</string>
+    <string name="hire">Ok, we\'ll hire u!</string>
+    <string name="no_date">No Release Info</string>
+    <string name="no_dev">No Developer Info</string>
+
+</resources>

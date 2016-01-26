@@ -1,0 +1,30 @@
+#Readme
+
+# Features
++Travel Test App for Phones and Tablets: see screenshots
++Android Studio 1.2.1.1 project
++tested on Nexus5 and Nexus7 (Genymotion Emulator)
++including custom controls, animations, intents and everything I think could be used as a showcase in this small task
+
+# Focus
++cleanCode: small methods, good readability, no boilerplate- or hacked id
++stability: couldn't crash it a single time :)
++performance: quick UI loading, splashscreen to load data in background
++intuitivity: using common android controls (actionbar etc) the user already knows
++no bad practices: orientation lock, unnecessary caches
++nearly just best practices: no deprecated APIs or old paradigms
++not too many 3rd party libs: so there's still something left for you to judge :)
++checking for exceptions: i.e. disable call feature when user has no SIM
+
+# Possible improvements
++Unit & UI test: I'm a friend of TDD
++more devices under tests
++better UX: unfortunately I didn't graphics to implement
++using material design of 5.0
++could have used recyclerView instead of ListFragment&Adapter
++using a database instead of sharedPrefs
++better distinction for layouts in orientations and scales
++using more libs (Butterknife, Dagger, Dart, Roboguice, GSon, Parceler, Retrofit and so on...)
++more localisation
++using startOf/endOf in RelativeLayout to spport RTL layouts
++extracting more styles for reusage

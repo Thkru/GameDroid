@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp">
+
+    <ImageView
+        android:id="@+id/iv_list_gamecover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:minHeight="75dp"
+        android:minWidth="75dp"
+        tools:src="@android:drawable/ic_popup_sync" />
+
+    <TextView
+        android:id="@+id/tv_list_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_list_gamecover"
+        android:layout_toRightOf="@+id/iv_list_gamecover"
+        android:padding="1dp"
+        android:paddingTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        tools:text="MY GAME NAME" />
+
+    <TextView
+        android:id="@+id/tv_list_dev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_list_name"
+        android:layout_toRightOf="@+id/iv_list_gamecover"
+        android:typeface="monospace"
+        android:text="@string/no_dev"
+        tools:text="MY DEVELOPER" />
+
+    <TextView
+        android:id="@+id/tv_list_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_list_dev"
+        android:layout_toRightOf="@+id/iv_list_gamecover"
+        android:typeface="monospace"
+        android:text="@string/no_date"
+        tools:text="MY RELEASE" />
+
+    <ImageView
+        android:id="@+id/iv_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/tv_list_name"
+        android:padding="2dp"
+        android:src="@android:drawable/star_big_on"
+        android:visibility="invisible"
+        tools:visibility="visible" />
+
+</RelativeLayout>
