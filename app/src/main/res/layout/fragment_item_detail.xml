@@ -1,47 +1,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/background_light"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:padding="20dp">
 
     <!-- header -->
     <ImageView
-        android:id="@+id/header"
+        android:id="@+id/iv_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:src="@drawable/header_logo"/>
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="15dp"
+        android:src="@drawable/header_logo" />
 
-    <!-- fav & releaseDate -->
+    <!-- fav & name -->
 
     <ImageButton
         android:id="@+id/btn_favourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header"
+        android:layout_below="@id/iv_header"
         android:background="@android:color/background_light"
         android:padding="2dp"
         android:paddingLeft="15dp"
-        android:src="@drawable/star"
-        />
+        android:src="@drawable/star" />
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/btn_favourite"
-        android:layout_below="@id/header"
+        android:layout_below="@id/iv_header"
         android:layout_toRightOf="@+id/btn_favourite"
         android:padding="5dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
         android:typeface="monospace"
-        tools:text="MY EXTENDED COMPANY NAME"
-        />
+        tools:text="MY EXTENDED GAME NAME" />
 
     <!-- logo in BG -->
 
@@ -49,81 +45,66 @@
         android:id="@+id/iv_gamecover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:minHeight="300dp"
-        android:minWidth="300dp"
-        tools:src="@android:drawable/ic_popup_sync"
-        />
+        android:layout_alignEnd="@+id/tv_description"
+        android:layout_alignRight="@+id/tv_description"
+        android:layout_centerVertical="true"
+        android:minHeight="200dp"
+        android:minWidth="200dp"
+        tools:src="@android:drawable/ic_popup_sync" />
 
-    <!-- id -->
+    <!-- release date -->
 
     <TextView
-        android:padding="5dp"
+        android:id="@+id/lbl_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tv_name"
-        android:id="@+id/lbl_code"
-        android:text="@string/id"
-        android:typeface="monospace"
+        android:padding="2dp"
+        android:text="@string/release"
         android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:typeface="monospace" />
 
     <TextView
-        android:id="@+id/tv_code"
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/lbl_code"
-        android:layout_alignTop="@+id/lbl_code"
-        android:padding="5dp"
+        android:layout_alignTop="@+id/lbl_date"
+        android:layout_toRightOf="@+id/lbl_date"
+        android:padding="2dp"
         android:textStyle="italic"
-        tools:text="CODE"
-        />
+        tools:text="RELEASE DATE" />
 
-    <!-- web -->
-
-    <TextView
-        android:padding="5dp"
-        android:layout_below="@+id/lbl_code"
-        android:id="@+id/lbl_web"
-        android:text="@string/web"
-        android:typeface="monospace"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <!-- developer -->
 
     <TextView
-        android:id="@+id/tv_website"
+        android:id="@+id/lbl_dev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/lbl_web"
-        android:layout_alignTop="@+id/lbl_web"
-        android:padding="5dp"
+        android:layout_below="@+id/tv_date"
+        android:padding="2dp"
+        android:text="@string/dev"
+        android:textStyle="bold"
+        android:typeface="monospace" />
+
+    <TextView
+        android:id="@+id/tv_dev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/lbl_dev"
+        android:layout_toRightOf="@+id/lbl_dev"
+        android:padding="2dp"
         android:textStyle="italic"
-        tools:text="www.mywebsite.com"
-        />
+        tools:text="MY EXTENDED DEVELOPER NAME" />
 
     <!-- text -->
 
     <TextView
-        android:padding="5dp"
-        android:layout_below="@+id/lbl_web"
-        android:id="@+id/lbl_phone"
-        android:text="@string/text"
-        android:typeface="monospace"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_phone"
+        android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/lbl_phone"
-        android:layout_alignTop="@+id/lbl_phone"
+        android:layout_below="@id/tv_dev"
+        android:layout_centerHorizontal="true"
         android:padding="5dp"
-        tools:text="+49 123456789"
-        />
-
-    <!-- Footer buttons -->
-    <include layout="@layout/detail_buttons"/>
+        tools:text="MY EXTENSIVE DESCRIPTION" />
 
 </RelativeLayout>

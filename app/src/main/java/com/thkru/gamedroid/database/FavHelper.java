@@ -5,6 +5,9 @@ import android.util.Log;
 
 import java.util.List;
 
+/**
+ * Facade for Database/SharedPrefs persistance
+ */
 public class FavHelper {
 
     private static final String TAG = "FavHelper";

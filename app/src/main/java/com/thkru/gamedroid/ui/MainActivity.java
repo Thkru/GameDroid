@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 
         if (container != null) {
             mTwoPane = true;
-            manageEmptyView();//tablet only
+//            manageEmptyView();//tablet only
         }
         setupActionbarNav();
         EventBus.getDefault().register(this);
@@ -57,6 +57,7 @@ public class MainActivity extends Activity {
 
     private void manageEmptyView() {
         View v = getLayoutInflater().inflate(R.layout.empty_bg_tablet, null);
+        ButterKnife.bind(this, v);
         container.addView(v);
         empty_header.setAlpha(40);
     }

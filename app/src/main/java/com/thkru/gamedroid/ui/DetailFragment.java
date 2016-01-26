@@ -53,74 +53,15 @@ public class DetailFragment extends Fragment {
         Picasso.with(getActivity()).load(CloudHelper.getCoverUrlForId(mGame.getId())).into(img);
         img.setAlpha(20);//ion has problems using alpha afterwards, picasso doesn't
 
-        initPhoneAndWebButtons(v);
-
         handleFavourit(v);
         return v;
     }
 
     private void initTextsForGame(View v) {
-        ((TextView) v.findViewById(R.id.tv_code)).setText(""+mGame.getId());
-        ((TextView) v.findViewById(R.id.tv_name)).setText(mGame.getReleaseDate());
-
-        String phone = mGame.getText();
-        if (phone == null || phone.length() == 0)
-            phone = getResources().getString(R.string.no_phone);
-
-        ((TextView) v.findViewById(R.id.tv_phone)).setText(phone);
-
-//        String site = mGame.getCoverUrl();
-//        if (site == null || site.length() == 0)
-//            site = getResources().getString(R.string.no_web);
-//        ((TextView) v.findViewById(R.id.tv_website)).setText(site);
-    }
-
-    private boolean isTelephonyEnabled() {   //checks if your device can make calls... obviously ^
-        TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-        return tm != null && tm.getSimState() == TelephonyManager.SIM_STATE_READY;
-    }
-
-//    private boolean isValidWeb() {
-//        String web = mGame.getCoverUrl();
-//        return web != null && web.length() > 0 && (web.startsWith("http") || web.startsWith("www"));//additional checks possible
-//    }
-
-    private boolean isValidPhone() {
-        String phone = mGame.getText();
-        return phone != null && phone.length() > 0;//additional checks possible
-    }
-
-    private void initPhoneAndWebButtons(View v) {
-
-//        if (!isValidWeb()) {
-//            v.findViewById(R.id.btn_website).setEnabled(false);
-//            v.findViewById(R.id.btn_website).setBackgroundResource(R.drawable.kbutton_inactive);
-//        }
-//        if (!isValidPhone() || !isTelephonyEnabled()) {
-//            v.findViewById(R.id.btn_call).setEnabled(false);
-//            v.findViewById(R.id.btn_call).setBackgroundResource(R.drawable.kbutton_inactive);
-//        }
-//
-//        v.findViewById(R.id.btn_website).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent i = new Intent(Intent.ACTION_VIEW);
-//                String web = mGame.getCoverUrl();
-//                web = web.startsWith("http://") ? web : "http://".concat(web); //could have used Stringbuilder instead...
-//                i.setData(Uri.parse(web));
-//                startActivity(i);
-//            }
-//        });
-
-        v.findViewById(R.id.btn_call).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DIAL); //could have used "Call" instead, but this is more comfortable and needs no extra permission
-                intent.setData(Uri.parse("tel:" + mGame.getText()));
-                startActivity(intent);
-            }
-        });
+        ((TextView) v.findViewById(R.id.tv_name)).setText(""+mGame.getName());
+        ((TextView) v.findViewById(R.id.tv_date)).setText(mGame.getReleaseDate());
+        ((TextView) v.findViewById(R.id.tv_dev)).setText(mGame.getDev());
+        ((TextView) v.findViewById(R.id.tv_description)).setText(mGame.getText());
     }
 
     private void handleFavourit(View v) {
