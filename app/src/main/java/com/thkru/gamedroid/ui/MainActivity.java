@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.thkru.gamedroid.R;
@@ -32,11 +34,12 @@ import de.greenrobot.event.EventBus;
 public class MainActivity extends Activity {
 
     @Nullable
-    @Bind(R.id.item_detail_container) FrameLayout container;
+    @Bind(R.id.item_detail_container)
+    FrameLayout container;
     @Nullable
-    @Bind(R.id.iv_empty_header) ImageView empty_header;
-    @Nullable
-    @Bind(R.id.my_recycler_view) RecyclerView recycler;
+    @Bind(R.id.my_recycler_view)
+    RecyclerView recycler;
+
     private boolean mTwoPane;
 
     @Override
@@ -44,21 +47,23 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_item_list);
+
         ButterKnife.bind(this);
         populateNormalList();
 
         if (container != null) {
             mTwoPane = true;
-//            manageEmptyView();//tablet only
+            manageEmptyView();//tablet only
         }
         setupActionbarNav();
         EventBus.getDefault().register(this);
     }
 
     private void manageEmptyView() {
-        View v = getLayoutInflater().inflate(R.layout.empty_bg_tablet, null);
-        ButterKnife.bind(this, v);
-        container.addView(v);
+
+        RelativeLayout root = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.empty_bg_tablet, null);
+        container.addView(root);
+        ImageView empty_header = (ImageView) root.findViewById(R.id.iv_empty_header);
         empty_header.setAlpha(40);
     }
 

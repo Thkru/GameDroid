@@ -23,12 +23,6 @@ import com.thkru.gamedroid.R;
 
 import de.greenrobot.event.EventBus;
 
-/**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a {@link MainActivity}
- * in two-pane mode (on tablets) or a {@link DetailActivity}
- * on handsets.
- */
 public class DetailFragment extends Fragment {
 
     public static final String GAME = "game";
