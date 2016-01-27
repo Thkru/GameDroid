@@ -1,11 +1,11 @@
 <resources>
-    <style name="AppTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
 
         <!--We will be using the toolbar so no need to show ActionBar-->
         <item name="actionBarStyle">@menu/main_menu</item>
-
-        <item name="android:windowActionBar">true</item>
-        <item name="android:windowNoTitle">true</item>
+        <item name="android:title">BlaTitle</item>
+        <item name="android:subtitle">BlaSubTitle</item>
+        <item name="android:logo">@drawable/ic_launcher</item>
         <item name="android:colorPrimary">#2196F3</item>
         <item name="android:colorPrimaryDark">#1976D2</item>
         <item name="android:colorAccent">#FF4081</item>

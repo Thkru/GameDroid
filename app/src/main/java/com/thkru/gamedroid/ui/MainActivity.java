@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,7 +41,7 @@ public class MainActivity extends Activity {
     @Nullable
     @Bind(R.id.my_recycler_view)
     RecyclerView recycler;
-    @Bind(R.id.toolbar)
+    @Bind(R.id.mytoolbar)
     Toolbar toolbar;
 
     private boolean mTwoPane;
@@ -98,14 +97,19 @@ public class MainActivity extends Activity {
     private void setupToolbar() {
 
 //        setSupportActionBar(toolbar);
+        Toolbar bar = (Toolbar) findViewById(R.id.mytoolbar);
         setActionBar(toolbar);
         toolbar.inflateMenu(R.menu.main_menu);
+
         toolbar.setLogo(R.drawable.ic_launcher);
         toolbar.setNavigationIcon(R.drawable.ic_launcher);
+
         toolbar.setTitle("Title");
         toolbar.setSubtitle("Sub");
+        toolbar.setNavigationContentDescription("ContentDesc");
+        toolbar.setLogoDescription("LogoDesc");
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.inflateMenu(R.menu.main_menu);
 
         if (true)
             return;
