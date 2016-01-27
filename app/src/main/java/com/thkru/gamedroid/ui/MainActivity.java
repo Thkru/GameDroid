@@ -6,15 +6,18 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.thkru.gamedroid.R;
 import com.thkru.gamedroid.data.Game;
@@ -39,6 +42,8 @@ public class MainActivity extends Activity {
     @Nullable
     @Bind(R.id.my_recycler_view)
     RecyclerView recycler;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
 
     private boolean mTwoPane;
 
@@ -55,7 +60,7 @@ public class MainActivity extends Activity {
             mTwoPane = true;
             manageEmptyView();//tablet only
         }
-        setupActionbarNav();
+        setupToolbar();
         EventBus.getDefault().register(this);
     }
 
@@ -83,7 +88,28 @@ public class MainActivity extends Activity {
 
     private int lastActionPos;
 
-    private void setupActionbarNav() {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    private void setupToolbar() {
+
+//        setSupportActionBar(toolbar);
+        setActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.main_menu);
+        toolbar.setLogo(R.drawable.ic_launcher);
+        toolbar.setNavigationIcon(R.drawable.ic_launcher);
+        toolbar.setTitle("Title");
+        toolbar.setSubtitle("Sub");
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (true)
+            return;
+
         final ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);//some deprecated methods, should be fine, just for actionbar

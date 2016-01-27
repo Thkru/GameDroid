@@ -14,7 +14,7 @@ public class DetailActivity extends Activity {
 
         setContentView(R.layout.activity_item_detail);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
