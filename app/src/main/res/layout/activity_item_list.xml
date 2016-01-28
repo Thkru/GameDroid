@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/colorPrimary"
         android:minHeight="?android:attr/actionBarSize"
-        android:title="@string/app_name"/>
+        android:title="@string/app_name" />
 
 
     <!-- A RecyclerView with some commonly used attributes -->
@@ -17,6 +17,7 @@
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/mytoolbar"
         android:scrollbars="vertical" />
 
 </RelativeLayout>
