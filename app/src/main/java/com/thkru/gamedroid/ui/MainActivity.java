@@ -95,48 +95,9 @@ public class MainActivity extends Activity {
     }
 
     private void setupToolbar() {
-
-//        setSupportActionBar(toolbar);
         Toolbar bar = (Toolbar) findViewById(R.id.mytoolbar);
         setActionBar(toolbar);
         toolbar.inflateMenu(R.menu.main_menu);
-
-        toolbar.setLogo(R.drawable.ic_launcher);
-        toolbar.setNavigationIcon(R.drawable.ic_launcher);
-
-        toolbar.setTitle("Title");
-        toolbar.setSubtitle("Sub");
-        toolbar.setNavigationContentDescription("ContentDesc");
-        toolbar.setLogoDescription("LogoDesc");
-
-        toolbar.inflateMenu(R.menu.main_menu);
-
-        if (true)
-            return;
-
-        final ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);//some deprecated methods, should be fine, just for actionbar
-
-        ArrayList<String> itemList = new ArrayList<String>();
-        itemList.add(getString(R.string.all_games));
-        itemList.add(getString(R.string.fav_game));
-        itemList.add(getString(R.string.about));
-        actionBar.setListNavigationCallbacks(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, itemList), new ActionBar.OnNavigationListener() {
-            @Override
-            public boolean onNavigationItemSelected(int i, long l) {
-
-                if (i == 2) {
-                    actionBar.setSelectedNavigationItem(lastActionPos);
-                    aboutDlg();
-                    return false;
-                }
-
-                lastActionPos = i;
-                repopulateList(i);
-                return true;
-            }
-        });
     }
 
     private void aboutDlg() { //does not survive tilt, but that's okay (despite leaking)
