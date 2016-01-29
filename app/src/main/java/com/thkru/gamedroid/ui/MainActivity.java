@@ -41,8 +41,8 @@ public class MainActivity extends Activity {
     @Nullable
     @Bind(R.id.my_recycler_view)
     RecyclerView recycler;
-    @Bind(R.id.mytoolbar)
-    Toolbar toolbar;
+//    @Bind(R.id.toolbar)
+//    Toolbar toolbar;
 
     private boolean mTwoPane;
 
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
             mTwoPane = true;
             manageEmptyView();//tablet only
         }
-        setupToolbar();
+//        setupToolbar();
         EventBus.getDefault().register(this);
     }
 
@@ -95,9 +95,9 @@ public class MainActivity extends Activity {
     }
 
     private void setupToolbar() {
-        Toolbar bar = (Toolbar) findViewById(R.id.mytoolbar);
-        setActionBar(toolbar);
-        toolbar.inflateMenu(R.menu.main_menu);
+//        Toolbar bar = (Toolbar) findViewById(R.id.mytoolbar);
+//        setActionBar(toolbar);
+//        toolbar.inflateMenu(R.menu.main_menu);
     }
 
     private void aboutDlg() { //does not survive tilt, but that's okay (despite leaking)

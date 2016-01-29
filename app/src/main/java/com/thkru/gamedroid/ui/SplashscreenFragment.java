@@ -42,12 +42,9 @@ public class SplashscreenFragment extends Fragment implements LoaderManager.Load
             @Override
             public List<Game> loadInBackground() {
 
-                try
-                {
+                try {
                     return new CloudHelper().getGamesFromServer();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();//could check for specific exception here, i.e. showing dialogs via publishProgress in UI Thread
                     return null;
                 }
@@ -58,14 +55,14 @@ public class SplashscreenFragment extends Fragment implements LoaderManager.Load
     @Override
     public void onLoadFinished(Loader loader, Object o) {
 
-        if(o == null ) { //when Exception (or 30s Timeout) during connection, can be tested in airplaneMode+Wifi off
+        if (o == null) { //when Exception (or 30s Timeout) during connection, can be tested in airplaneMode+Wifi off
             Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.loading_error), Toast.LENGTH_LONG).show();
             //could finish the app OR handle dialog, OR retry, OR ... whatever
             return;
         }
 
         Intent i = new Intent(getActivity(), MainActivity.class);
-        i.putParcelableArrayListExtra("extra", (ArrayList<Parcelable>)o);
+        i.putParcelableArrayListExtra("extra", (ArrayList<Parcelable>) o);
         getActivity().startActivity(i);
         getActivity().finish();
     }
