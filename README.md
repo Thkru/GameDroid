@@ -4,28 +4,28 @@ GAMEDROID
 
 Thomas Krüger Portfolio App
 
-+Portoflio App for Phones and Tablets: see screenshots
-+Android Studio 1.5.1 project
-+tested on Nexus5 and Nexus7
-+cleanCode: small methods, good readability, no boilerplate- or hacked code
-+performance: quick UI loading, splashscreen to load data in background
-+intuitive UI: using common android controls (actionbar etc) the user already knows
-+stability: couldn't crash it a single time
-+no bad practices: orientation lock, unnecessary caches
-+nearly just best practices: no deprecated APIs or old paradigms
+Portoflio App for Phones and Tablets: see screenshots
+Android Studio 1.5.1 project
+tested on Nexus5 and Nexus7
+cleanCode: small methods, good readability, no boilerplate- or hacked code
+performance: quick UI loading, splashscreen to load data in background
+intuitive UI: using common android controls (actionbar etc) the user already knows
+stability: couldn't crash it a single time
+no bad practices: orientation lock, unnecessary caches
+nearly just best practices: no deprecated APIs or old paradigms
 
 Next Steps:
-+Dagger
-+Retrofit & SimpleXML
-+Material Design & Polished UI
-+Parceler
-+Unit & UI test: I'm a friend of TDD
-+RxJava
+Dagger
+Retrofit & SimpleXML
+Material Design & Polished UI
+Parceler
+Unit & UI test: I'm a friend of TDD
+RxJava
 
 
 Future Steps:
-+better distinction for layouts in orientations and scales
-+extracting more styles for reusage
-+using startOf/endOf in RelativeLayout to spport RTL layouts
-+more devices under tests
-+more localisation
+better distinction for layouts in orientations and scales
+extracting more styles for reusage
+using startOf/endOf in RelativeLayout to spport RTL layouts
+more devices under tests
+more localisation
