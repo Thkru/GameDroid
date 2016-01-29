@@ -8,24 +8,24 @@ Thomas Krüger Portfolio App
 +Android Studio 1.5.1 project<br />
 +tested on Nexus5 and Nexus7<br />
 +cleanCode: small methods, good readability, no boilerplate- or hacked code<br />
-+performance: quick UI loading, splashscreen to load data in background
-+intuitive UI: using common android controls (actionbar etc) the user already knows
-+stability: couldn't crash it a single time
-+no bad practices: orientation lock, unnecessary caches
-+nearly just best practices: no deprecated APIs or old paradigms
++performance: quick UI loading, splashscreen to load data in background<br />
++intuitive UI: using common android controls (actionbar etc) the user already knows<br />
++stability: couldn't crash it a single time<br />
++no bad practices: orientation lock, unnecessary caches<br />
++nearly just best practices: no deprecated APIs or old paradigms<br />
 
-Next Steps:
-+Dagger
-+Retrofit & SimpleXML
-+Material Design & Polished UI
-+Parceler
-+Unit & UI test: I'm a friend of TDD
-+RxJava
+Next Steps:<br />
++Dagger<br />
++Retrofit & SimpleXML<br />
++Material Design & Polished UI<br />
++Parceler<br />
++Unit & UI test: I'm a friend of TDD<br />
++RxJava<br />
 
 
-Future Steps:
-+better distinction for layouts in orientations and scales
-+extracting more styles for reusage
-+using startOf/endOf in RelativeLayout to spport RTL layouts
-+more devices under tests
-+more localisation
+Future Steps:<br />
++better distinction for layouts in orientations and scales<br />
++extracting more styles for reusage<br />
++using startOf/endOf in RelativeLayout to spport RTL layouts<br />
++more devices under tests<br />
++more localisation<br />
