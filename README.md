@@ -16,12 +16,10 @@ Thomas Krüger Portfolio App
 
 Next Steps:<br />
 +Dagger<br />
-+Retrofit & SimpleXML<br />
 +Material Design & Polished UI<br />
 +Parceler<br />
 +Unit & UI test: I'm a friend of TDD<br />
 +RxJava<br />
-
 
 Future Steps:<br />
 +better distinction for layouts in orientations and scales<br />
@@ -29,3 +27,6 @@ Future Steps:<br />
 +using startOf/endOf in RelativeLayout to spport RTL layouts<br />
 +more devices under tests<br />
 +more localisation<br />
+
+Used Libs:<br />
+Picasso, Ion, Eventbus, Butterknife, Gson, Retrofit, Gson, OkHttp<br />
