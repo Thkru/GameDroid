@@ -1,11 +1,7 @@
 package com.thkru.gamedroid.ui;
 
 import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +11,9 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import com.thkru.gamedroid.cloud.CloudHelper;
+import com.thkru.gamedroid.data.CoverConstants;
 import com.thkru.gamedroid.data.Game;
+import com.thkru.gamedroid.data.OldGame;
 import com.thkru.gamedroid.database.FavHelper;
 import com.thkru.gamedroid.utils.FavEvent;
 
@@ -44,7 +42,7 @@ public class DetailFragment extends Fragment {
         initTextsForGame(v);
 
         ImageView img = (ImageView) v.findViewById(R.id.iv_gamecover);
-        Picasso.with(getActivity()).load(CloudHelper.getCoverUrlForId(mGame.getId())).into(img);
+        Picasso.with(getActivity()).load(CloudHelper.getCoverUrlForId(CoverConstants.COVER_DETAIL, mGame.getHash())).into(img);
         img.setAlpha(20);//ion has problems using alpha afterwards, picasso doesn't
 
         handleFavourit(v);
@@ -54,8 +52,8 @@ public class DetailFragment extends Fragment {
     private void initTextsForGame(View v) {
         ((TextView) v.findViewById(R.id.tv_name)).setText("" + mGame.getName());
         ((TextView) v.findViewById(R.id.tv_date)).setText(mGame.getReleaseDate());
-        ((TextView) v.findViewById(R.id.tv_dev)).setText(mGame.getDev());
-        ((TextView) v.findViewById(R.id.tv_description)).setText(mGame.getText());
+//        ((TextView) v.findViewById(R.id.tv_dev)).setText(mGame.getDev());
+//        ((TextView) v.findViewById(R.id.tv_description)).setText(mGame.getText());
     }
 
     private void handleFavourit(View v) {

@@ -12,14 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.thkru.gamedroid.cloud.CloudHelper;
-import com.thkru.gamedroid.data.Game;
-
 import com.thkru.gamedroid.R;
+import com.thkru.gamedroid.cloud.CloudHelper;
+import com.thkru.gamedroid.utils.GamesLoadedEvent;
+import com.thkru.gamedroid.utils.ServerErrorEvent;
+
+import java.util.ArrayList;
+
+import de.greenrobot.event.EventBus;
 
 public class SplashscreenFragment extends Fragment implements LoaderManager.LoaderCallbacks {
 
@@ -28,47 +28,54 @@ public class SplashscreenFragment extends Fragment implements LoaderManager.Load
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         getLoaderManager().initLoader(0, null, this).forceLoad();
-
         return inflater.inflate(R.layout.fragment_splashscreen, container, false);
     }
+
 
     @Override
     public Loader onCreateLoader(int i, Bundle bundle) {
 
-        return new AsyncTaskLoader<List<Game>>(getActivity()) {
+        return new AsyncTaskLoader<Void>(getActivity()) {
 
             @Override
-            public List<Game> loadInBackground() {
-
-                try {
-                    return new CloudHelper().getGamesFromServer();
-                } catch (IOException e) {
-                    e.printStackTrace();//could check for specific exception here, i.e. showing dialogs via publishProgress in UI Thread
-                    return null;
-                }
+            public Void loadInBackground() {
+                new CloudHelper().doRequest();
+                return null;
             }
         };
     }
 
     @Override
     public void onLoadFinished(Loader loader, Object o) {
-
-        if (o == null) { //when Exception (or 30s Timeout) during connection, can be tested in airplaneMode+Wifi off
-            Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.loading_error), Toast.LENGTH_LONG).show();
-            //could finish the app OR handle dialog, OR retry, OR ... whatever
-            return;
-        }
-
-        Intent i = new Intent(getActivity(), MainActivity.class);
-        i.putParcelableArrayListExtra("extra", (ArrayList<Parcelable>) o);
-        getActivity().startActivity(i);
-        getActivity().finish();
     }
 
     @Override
     public void onLoaderReset(Loader loader) {
         //had to implement it, interfaceContract
+    }
+
+
+    public void onEvent(GamesLoadedEvent e) {
+        Intent i = new Intent(getActivity(), MainActivity.class);
+        i.putParcelableArrayListExtra("extra", (ArrayList<? extends Parcelable>) e.getGames());
+        getActivity().startActivity(i);
+        getActivity().finish();
+    }
+
+    public void onEvent(ServerErrorEvent e) {
+        Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.loading_error), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onPause() {
+        EventBus.getDefault().unregister(this);
+        super.onPause();
     }
 }

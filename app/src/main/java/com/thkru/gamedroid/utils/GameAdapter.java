@@ -13,7 +13,9 @@ import android.widget.TextView;
 import com.koushikdutta.ion.Ion;
 import com.thkru.gamedroid.R;
 import com.thkru.gamedroid.cloud.CloudHelper;
+import com.thkru.gamedroid.data.CoverConstants;
 import com.thkru.gamedroid.data.Game;
+import com.thkru.gamedroid.data.OldGame;
 import com.thkru.gamedroid.database.FavHelper;
 
 import java.util.List;
@@ -64,12 +66,14 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
 
         setClickListener(holder, pos);
 
-        if(pos % 2 == 0)
+        if (pos % 2 == 0)
             holder.root.setBackgroundColor(Color.argb(255, 240, 240, 240));
 
         setTextCaptions(holder, pos);
         handleFavIcon(holder, pos);
-        Ion.with((ImageView) holder.cover).resize(100, 150).load(CloudHelper.getCoverUrlForId(games.get(pos).getId()));
+        Ion.with((ImageView) holder.cover)
+                .resize(100, 150)
+                .load(CloudHelper.getCoverUrlForId(CoverConstants.COVER_LIST, games.get(pos).getHash()));
 
 //        animateItem(holder, pos);
     }
@@ -82,11 +86,11 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
     private void setTextCaptions(GameViewHolder holder, int pos) {
         holder.name.setText(games.get(pos).getName());
 
-        if(games.get(pos).getReleaseDate() != null)
+        if (games.get(pos).getReleaseDate() != null)
             holder.date.setText(games.get(pos).getReleaseDate());
 
-        if(games.get(pos).getDev() != null)
-            holder.dev.setText(games.get(pos).getDev());
+//        if (games.get(pos).getDev() != null)
+//            holder.dev.setText(games.get(pos).getDev());
     }
 
     private void setClickListener(GameViewHolder holder, final int pos) {

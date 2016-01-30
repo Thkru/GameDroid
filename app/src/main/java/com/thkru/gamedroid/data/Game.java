@@ -3,63 +3,38 @@ package com.thkru.gamedroid.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Game implements Parcelable {
 
-    private final int id;  //correct me if I'm wrong, but this one is unique and can be used as primary key...?
-    private final String name;
-    private final String releaseDate;
-    private final String text;
-    private final String dev;
+    @SerializedName("id")
+    @Expose
+    public Integer id;
 
-    public Game(int id, String name, String releaseDate, String text, String developer) {
-        this.id = id;
-        this.name = name;
-        this.releaseDate = releaseDate;
-        this.text = text;
-        this.dev = developer;
-    }
+    @SerializedName("name")
+    @Expose
+    public String name;
 
-    // Parcelable stuff
-    @Override
-    public void writeToParcel(Parcel parcel, int i) { //could have used Android Parceler lib instead
-        parcel.writeInt(this.id);
-        parcel.writeString(this.name);
-        parcel.writeString(this.releaseDate);
-        parcel.writeString(this.text);
-        parcel.writeString(this.dev);
-    }
+    @SerializedName("slug")
+    @Expose
+    public String slug;
 
-    private Game(Parcel in) {
-        this.id = in.readInt();
-        this.name = in.readString();
-        this.releaseDate = in.readString();
-        this.text = in.readString();
-        this.dev = in.readString();
-    }
+    @SerializedName("release_date")
+    @Expose
+    public String releaseDate;
 
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Game createFromParcel(Parcel in) {
-            return new Game(in);
-        }
-        public Game[] newArray(int size) {
-            return new Game[size];
-        }
-    };
+    @SerializedName("cover")
+    @Expose
+    public String cover;
 
-    @Override
-    public String toString() {
-        return name;
-    }
+    @SerializedName("cover_id")
+    @Expose
+    public String coverId;
+    private String hash;
 
-    //getters
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public int getId() {
-        return id;
+    public String getHash() {
+        return coverId;
     }
 
     public String getName() {
@@ -70,12 +45,40 @@ public class Game implements Parcelable {
         return releaseDate;
     }
 
-    public String getText() {
-        return text;
+    public int getId() {
+        return id;
     }
 
-    public String getDev() {
-        return dev;
+    @Override
+    public int describeContents() {
+        return id;
     }
+
+    // Parcel stuff
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) { //could have used Android Parceler lib instead
+        parcel.writeInt(this.id);
+        parcel.writeString(this.name);
+        parcel.writeString(this.releaseDate);
+        parcel.writeString(this.coverId);
+    }
+
+    private Game(Parcel in) {
+        this.id = in.readInt();
+        this.name = in.readString();
+        this.releaseDate = in.readString();
+        this.coverId = in.readString();
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Game createFromParcel(Parcel in) {
+            return new Game(in);
+        }
+
+        public Game[] newArray(int size) {
+            return new Game[size];
+        }
+    };
 
 }

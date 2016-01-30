@@ -1,6 +1,5 @@
 package com.thkru.gamedroid.ui;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -9,14 +8,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.thkru.gamedroid.R;
 import com.thkru.gamedroid.data.Game;
@@ -87,18 +82,18 @@ public class MainActivity extends Activity {
 
     private int lastActionPos;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.main_menu, menu);
+//        return true;
+//    }
 
-    private void setupToolbar() {
+//    private void setupToolbar() {
 //        Toolbar bar = (Toolbar) findViewById(R.id.mytoolbar);
 //        setActionBar(toolbar);
 //        toolbar.inflateMenu(R.menu.main_menu);
-    }
+//    }
 
     private void aboutDlg() { //does not survive tilt, but that's okay (despite leaking)
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
