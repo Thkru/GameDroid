@@ -29,4 +29,4 @@ Future Steps:<br />
 +more localisation<br />
 
 Used Libs:<br />
-Picasso, Ion, Eventbus, Butterknife, Gson, Retrofit, Gson, OkHttp<br />
+Picasso, Ion, Eventbus, Butterknife, Retrofit, Gson, OkHttp<br />
