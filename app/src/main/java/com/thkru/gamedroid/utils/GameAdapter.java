@@ -15,7 +15,6 @@ import com.thkru.gamedroid.R;
 import com.thkru.gamedroid.cloud.CloudHelper;
 import com.thkru.gamedroid.data.CoverConstants;
 import com.thkru.gamedroid.data.Game;
-import com.thkru.gamedroid.data.OldGame;
 import com.thkru.gamedroid.database.FavHelper;
 
 import java.util.List;

@@ -13,7 +13,6 @@ import com.squareup.picasso.Picasso;
 import com.thkru.gamedroid.cloud.CloudHelper;
 import com.thkru.gamedroid.data.CoverConstants;
 import com.thkru.gamedroid.data.Game;
-import com.thkru.gamedroid.data.OldGame;
 import com.thkru.gamedroid.database.FavHelper;
 import com.thkru.gamedroid.utils.FavEvent;
 
@@ -52,8 +51,6 @@ public class DetailFragment extends Fragment {
     private void initTextsForGame(View v) {
         ((TextView) v.findViewById(R.id.tv_name)).setText("" + mGame.getName());
         ((TextView) v.findViewById(R.id.tv_date)).setText(mGame.getReleaseDate());
-//        ((TextView) v.findViewById(R.id.tv_dev)).setText(mGame.getDev());
-//        ((TextView) v.findViewById(R.id.tv_description)).setText(mGame.getText());
     }
 
     private void handleFavourit(View v) {

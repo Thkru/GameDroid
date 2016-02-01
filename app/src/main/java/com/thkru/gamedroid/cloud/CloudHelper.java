@@ -2,11 +2,13 @@ package com.thkru.gamedroid.cloud;
 
 import android.util.Log;
 
+import com.thkru.gamedroid.data.Game;
 import com.thkru.gamedroid.data.Games;
 import com.thkru.gamedroid.utils.GamesLoadedEvent;
 import com.thkru.gamedroid.utils.ServerErrorEvent;
 
-import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import de.greenrobot.event.EventBus;
 import retrofit.Callback;
@@ -37,11 +39,14 @@ public class CloudHelper {
 
     private void retroFitCall(Retrofit retrofit) {
         RestGameInterface service = retrofit.create(RestGameInterface.class);
-        service.listRepos(100, TOKEN).enqueue(new Callback<Games>() {
+        service.listRepos(0, 250, TOKEN, 6).enqueue(new Callback<Games>() {
             @Override
             public void onResponse(Response<Games> response, Retrofit retrofit) {
                 Log.i("", "DoRequest - Success");
-                EventBus.getDefault().post(new GamesLoadedEvent(response.body().games));
+
+                List<Game> games = response.body().games;
+                Collections.sort(games);
+                EventBus.getDefault().post(new GamesLoadedEvent(games));
             }
 
             @Override

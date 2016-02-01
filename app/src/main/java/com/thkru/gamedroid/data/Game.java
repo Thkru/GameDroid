@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Game implements Parcelable {
+public class Game implements Parcelable, Comparable {
 
     @SerializedName("id")
     @Expose
@@ -81,4 +81,13 @@ public class Game implements Parcelable {
         }
     };
 
+    @Override
+    public int compareTo(Object o) {
+        if(releaseDate == null || ((Game)o).getReleaseDate() == null)
+            return  -1;
+
+        int date1 = Integer.parseInt(((Game) o).getReleaseDate().replace("-", ""));
+        int date2 = Integer.parseInt(releaseDate.replace("-", ""));
+        return Integer.compare(date1, date2);
+    }
 }
