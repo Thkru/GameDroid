@@ -37,7 +37,7 @@ public class CloudHelper {
     }//end doRequest
 
 
-    private void retroFitCall(Retrofit retrofit) {
+    protected void retroFitCall(Retrofit retrofit) {
         RestGameInterface service = retrofit.create(RestGameInterface.class);
         service.listRepos(0, 250, TOKEN, 6).enqueue(new Callback<Games>() {
             @Override
